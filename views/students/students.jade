@@ -1,0 +1,62 @@
+doctype html
+html
+    head
+        base(href="/")
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 学生信息管理系统
+        link(rel="stylesheet",href="frameworks/bootstrap-3.3.0/css/bootstrap.min.css")
+        script(src='frameworks/jquery-2.1.4/jquery.min.js')
+        script(src='frameworks/bootstrap-3.3.0/js/bootstrap.min.js')
+    body
+        include ../includes/header
+
+        div.container
+            form.form-inline
+                div.form-group
+                    input.form-control(type="search",placeholder="请输入关键字")
+                button.btn.btn-primary(type="submit") Search
+            br
+            div.table-responsive
+                table.table.table-condensed.table-hover.table-bordered
+                    thead
+                        tr
+                            th 选择
+                            th 姓名
+                            th 性别
+                            th 手机号
+                            th 地址
+                    tbody
+                        td
+                            input(type="checkbox")
+                        td 张三
+                        td 男
+                        td 1889687921
+                        td 上海浦东新区
+            div
+                button.btn.btn-primary(data-toggle="modal",data-target="#studentModal") 添加
+                button.btn.btn-primary 修改
+                button.btn.btn-primary 删除
+
+            div(id="studentModal").modal.fade
+                div.modal-dialog
+                    div.modal-content
+                        div.modal-header
+                            button.close(type="button",data-dismiss="modal",aria-hidden="true")&times;
+                            h4.modal-title 添加课程信息
+                        div.modal-body
+                            form.form-horizontal(action="course/save",method="post")
+                                div.form-group.has-feedback
+                                    label.control-label.col-md-3 课程名
+                                    div.col-md-9
+                                        input.form-control(type="text",name="name")
+                                        span.glyphicon.glyphicon-user.form-control-feedback
+
+                                div.form-group
+                                    lable.control-label.col-md-3 学分
+                                    div.col-md-9
+                                        input.form-control(type="text",name="credit")
+
+                        div.modal-footer
+                            button.btn.btn-default(data-dismiss="modal") 关闭
+                            button.btn.btn-primary(data-dismiss="modal") 保存

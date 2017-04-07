@@ -1,0 +1,39 @@
+doctype html
+html
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+		title 学生信息管理系统
+		link(rel="stylesheet",href="frameworks/bootstrap-3.3.0/css/bootstrap.min.css")
+		script(src='frameworks/jquery-2.1.4/jquery.min.js')
+		script(src='frameworks/bootstrap-3.3.0/js/bootstrap.min.js')
+	body
+		include includes/header
+
+		//内容
+		div.container
+			div.row
+				div.col-sm-8
+					img.img-responsive(src="images/school.jpg")
+				div.col-sm-4
+					- if (msg)
+						div.alert.alert-danger #{msg}
+					form.form-horizontal(action="login",method="post")
+						div.form-group.has-feedback
+							label.control-label.col-md-3 用户名
+							div.col-md-9
+								input.form-control(type="text",name="username")
+								span.glyphicon.glyphicon-user.form-control-feedback
+						div.form-group
+							lable.control-label.col-md-3 密码
+							div.col-md-9
+								input.form-control(type="password",name="password")
+						div.form-group
+							div.col-sm-offset-3.col-md-9
+								div.checkbox
+									lable
+										input(type="checkbox" name="remeber")
+										i Remeber me
+						div.form-group
+							div.col-sm-offset-3.col-md-9
+								input.btn.btn-default(type="submit" value="登录")

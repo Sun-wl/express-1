@@ -1,0 +1,44 @@
+doctype html
+html
+	head
+		base(href="/")
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+		title 学生信息管理系统
+		link(rel="stylesheet",href="frameworks/bootstrap-3.3.0/css/bootstrap.min.css")
+		script(src='frameworks/jquery-2.1.4/jquery.min.js')
+		script(src='frameworks/bootstrap-3.3.0/js/bootstrap.min.js')
+		script(src='javascripts/courses.js')
+
+	body
+		include ../includes/header
+	
+		div.container
+			form.form-inline
+				div.form-group
+					input.form-control(type="search",placeholder="请输入关键字")
+				button.btn.btn-primary(type="submit") Search
+				button.btn.btn-primary.addBtn 添加
+			br
+			div.table-responsive
+				table.table.table-condensed.table-hover.table-bordered
+					thead
+						tr
+							th 选择
+							th 课程名称
+							th 课程简介
+							th 学分
+							th 是否必修
+							th 操作
+					tbody
+						each val,index in courses
+							tr
+								td
+									input(type="checkbox" value=val.id)
+								td=val.name
+								td=val.description
+								td=val.credit
+								td=val.compulsory
+								td
+									a.btn.btn-primary.uptBtn.btn-xs 修改
+									a(href="/manager/deleteCourse?id="+val.id).btn.btn-danger.delBtn.btn-xs 删除

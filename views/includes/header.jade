@@ -1,0 +1,50 @@
+header
+	div.navbar.navbar-default
+		div.navbar-header
+			button.navbar-toggle(data-toggle="collapse" data-target=".navbar-responsive-collapse")
+				span.sr-only Toggle navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a.navbar-brand(href="toIndex") 学生信息管理系统
+		div.collapse.navbar-collapse.navbar-responsive-collapse
+			ul.nav.navbar-nav
+				- if (currentPage == 'index')
+					li.active
+						a(href="/toIndex") 主页
+				- else
+					li
+						a(href="/toIndex") 主页
+
+				- if (currentPage == 'students')
+					li.active
+						a(href="/manager/toStudents") 学生
+				- else
+					li
+						a(href="/manager/toStudents") 学生
+				- if (currentPage == 'courses')
+					li.active
+						a(href="/manager/toCourses") 课程
+				- else
+					li
+						a(href="/manager/toCourses") 课程
+			- if (student)
+				ul.nav.navbar-nav.pull-right.hidden-xs
+					li
+						a(href="javascript:void") #{student.username}
+					li
+						a(href="/logout") 退出
+			- else
+				ul.nav.navbar-nav.pull-right.hidden-xs
+					- if (currentPage == 'register')
+						li.active
+							a(href="/toRegister") 注册
+					- else
+						li
+							a(href="/toRegister") 注册
+					- if (currentPage == 'login')
+						li.active
+							a(href="/toLogin") 登录
+					- else
+						li
+							a(href="/toLogin") 登录

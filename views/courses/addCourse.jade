@@ -1,0 +1,31 @@
+
+div
+    form.form-horizontal(action="manager/course",method="post")
+        div.form-group.has-feedback
+            label.control-label.col-md-3 课程名
+            div.col-md-9
+                input.form-control(type="text",name="name")
+                span.glyphicon.glyphicon-user.form-control-feedback
+        div.form-group
+            lable.control-label.col-md-3 课程简介
+            div.col-md-9
+                input.form-control(type="text",name="description")
+        div.form-group
+            lable.control-label.col-md-3 学分
+            div.col-md-9
+                input.form-control(type="text",name="credit")
+        div.form-group
+            lable.control-label.col-md-3 是否必修
+            div.col-md-9.radio
+                label
+                    input(type='radio',name='compulsory',value='必修' checked=true)
+                    ='必修'
+                label
+                    input(type='radio',name='compulsory',value='选修')
+                    ='选修'
+        div.form-group
+            div.col-md-3.col-md-push-9
+                input(type="submit", value="保存").btn.btn-success
+                a(href="/manager/toCourses").btn.btn-default 返回
+
+
